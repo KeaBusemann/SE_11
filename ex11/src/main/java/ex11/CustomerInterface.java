@@ -1,7 +1,10 @@
 package ex11;
 
+import ex11.annotations.observer.ConcreteObserver;
+
 import java.util.*;
 
+@ConcreteObserver
 public class CustomerInterface implements AccountUpdatedListener {
     private HashMap<String, BankAccount> accounts = new HashMap<>();
     private Map<String, Date> updateHistory = new HashMap<>();

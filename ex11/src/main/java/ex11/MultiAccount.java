@@ -22,15 +22,15 @@ public class MultiAccount extends BankAccount {
     }
 
     public void addBankAccount(BankAccount ba) {
-    	subAccounts.add(ba);
+        subAccounts.add(ba);
     }
-    
+
     @Override
     public int getAmount() {
-    	int entireAmount = 0;
-    	for(BankAccount a: subAccounts)
-    		entireAmount += a.getAmount();
-    	return entireAmount;
+        int entireAmount = 0;
+        for(BankAccount a: subAccounts)
+            entireAmount += a.getAmount();
+        return entireAmount;
     }
 
     @Override
@@ -39,11 +39,11 @@ public class MultiAccount extends BankAccount {
     }
 
     public void removeBankAccount(BankAccount ba) {
-    	subAccounts.remove(ba);
+        subAccounts.remove(ba);
     }
 
-    public void getBankAccountByPosition(int position) {
-    	subAccounts.get(position);
+    public BankAccount getBankAccountByPosition(int position) {
+        return subAccounts.get(position);
     }
 
 }
