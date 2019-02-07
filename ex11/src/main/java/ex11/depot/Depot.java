@@ -1,10 +1,14 @@
 package ex11.depot;
 
+import ex11.annotations.observer.ConcreteObserver;
+import ex11.annotations.observer.Update;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+@ConcreteObserver
 public class Depot implements StockValueUpdatedListener {
 
     private List<Derivative> derivatives = new ArrayList<>();
@@ -29,6 +33,7 @@ public class Depot implements StockValueUpdatedListener {
         printSum();
     }
 
+    @Update
     @Override
     public void stockValueUpdated(Derivative derivative) {
         printSum();

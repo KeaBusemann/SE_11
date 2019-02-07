@@ -1,11 +1,17 @@
 package ex11.depot;
 
+import ex11.annotations.observer.Attach;
+import ex11.annotations.observer.Detach;
+import ex11.annotations.observer.Notify;
+import ex11.annotations.observer.Subject;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Wertpapier
  */
+@Subject
 abstract public class Derivative {
 
     private long id;
@@ -23,13 +29,17 @@ abstract public class Derivative {
 
     abstract public void updateValue(double val);
 
+    @Attach
     public void addValueUpdatedListener(StockValueUpdatedListener listener) {
         valueUpdatedListeners.add(listener);
     }
+
+    @Detach
     public void removeValueUpdatedListener(StockValueUpdatedListener listener) {
         valueUpdatedListeners.remove(listener);
     }
 
+    @Notify
     protected void notifyValueUpdatedListeners() {
         valueUpdatedListeners.forEach(listener -> listener.stockValueUpdated(this));
     }
