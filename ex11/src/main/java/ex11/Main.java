@@ -1,5 +1,11 @@
 package ex11;
 
+import ex11.depot.Depot;
+import ex11.depot.Stock;
+import scala.Enumeration;
+
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 
@@ -33,5 +39,14 @@ public class Main {
         System.out.println("Support interface update history: ");
         System.out.println(supportUpdateHistory.toString());
         System.out.println("These dates should be nearly identical!");
+
+
+        // stocks
+        Stock stock1 = new Stock(0, "stock 0", 1);
+        Stock stock2 = new Stock(0, "stock 0", 2);
+        Depot depot = new Depot(Arrays.asList(stock1, stock2));
+
+        stock1.updateValue(2);
+        stock2.updateValue(-1);
     }
 }
